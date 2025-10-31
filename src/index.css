@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AgriMove Custom Styles */
+@layer components {
+  /* Custom gradient backgrounds - exact from logo */
+  .bg-agri-gradient {
+    background: linear-gradient(to right, #4A8F4A, #6CB85C, #4A8F4A);
+  }
+
+  .bg-agri-light-gradient {
+    background: linear-gradient(to bottom right, #f0f9f0, #e8f5e8, #d1ead1);
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Custom hover effects */
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-1;
+  }
+
+  /* Custom focus styles */
+  .focus-agri {
+    @apply focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500;
+  }
+}

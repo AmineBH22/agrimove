@@ -1,0 +1,85 @@
+import React, { useState } from "react";
+import { Leaf, Star, DollarSign, Calendar, Truck } from 'lucide-react';
+import { useMarketplaceStore } from "../store/marketplaceStore";
+import { useAuthStore } from "../store/authStore";
+import { MarketplaceListing } from "../types";
+import Button from '../components/ui/Button';
+import { Input } from '../components/ui/Input';
+import { Select } from '../components/ui/Select';
+import { Layout } from '../components/layout/Layout';
+import ImageUpload from '../components/ui/ImageUpload';
+
+// ... (keep all the constants and component setup code until the return statement)
+
+const Marketplace: React.FC = () => {
+  // ... (keep all the existing state and functions)
+
+  return (
+    <Layout>
+      <div className="min-h-screen bg-gradient-to-br from-primary-50 via-primary-100 to-secondary-100 p-4 md:p-8">
+        <div className="container mx-auto space-y-6">
+          {/* Page Header */}
+          <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-primary-100">
+            <h1 className="text-3xl font-extrabold text-secondary-600">AgriMove Marketplace</h1>
+            <p className="text-secondary-500 mt-2">Discover and trade agricultural products</p>
+          </div>
+
+          {/* Search and Filter Section */}
+          <div className="flex flex-col md:flex-row gap-4 bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-primary-100">
+            <Input
+              type="search"
+              placeholder="Search products..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="flex-grow"
+            />
+            <Select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              options={CATEGORIES}
+              className="w-full md:w-48"
+            />
+            <Select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as 'date' | 'price' | 'rating')}
+              options={[
+                { value: 'date', label: 'Latest' },
+                { value: 'price', label: 'Price' },
+                { value: 'rating', label: 'Rating' }
+              ]}
+              className="w-full md:w-48"
+            />
+            {user?.role === 'farmer' && (
+              <Button onClick={() => setShowModal(true)} className="w-full md:w-auto">
+                Add New Listing
+              </Button>
+            )}
+          </div>
+
+          {/* Listings Grid */}
+          <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-primary-100">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* ... (keep the existing listing cards mapping) */}
+            </div>
+          </div>
+
+          {/* Product Detail Modal */}
+          {selectedListing && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+              {/* ... (keep the existing product detail modal content) */}
+            </div>
+          )}
+
+          {/* Add New Listing Modal */}
+          {showModal && (
+            <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
+              {/* ... (keep the existing add new listing modal content) */}
+            </div>
+          )}
+        </div>
+      </div>
+    </Layout>
+  );
+};
+
+export default Marketplace;
