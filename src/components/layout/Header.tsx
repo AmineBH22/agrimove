@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Menu, X, Bell, Globe, Tractor, Truck, User, LogOut } from 'lucide-react';
+import { Menu, X, Bell, Globe, User, LogOut } from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
 import Button from '../ui/Button';
 import Logo from '../ui/Logo';

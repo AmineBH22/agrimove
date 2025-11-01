@@ -155,82 +155,109 @@ const Dashboard: React.FC = () => {
 
           {/* Quick Actions */}
           <div className="mb-8">
-            <h2 className="text-lg font-semibold text-neutral-900 mb-4">Quick Actions</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <h2 className="text-xl font-semibold text-neutral-900 mb-6 flex items-center gap-2">
+              <span className="w-2 h-8 bg-primary-500 rounded-full"></span>
+              Quick Actions
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {user.role === 'farmer' ? (
                 <>
                   <Button 
-                    variant="outline" 
-                    className="flex flex-col items-center justify-center h-24 border-primary-200 hover:bg-primary-50 hover:border-primary-300"
+                    variant="ghost" 
+                    className="group relative flex flex-col items-center justify-center h-32 bg-white rounded-xl shadow-sm border border-neutral-200 transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-primary-300"
                     onClick={() => navigate('/request-transport')}
                   >
-                    <Truck className="h-6 w-6 text-primary-600 mb-2" />
-                    <span>Request Transport</span>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-primary-500 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div className="p-3 rounded-full bg-primary-50 group-hover:bg-primary-100 transition-colors duration-300">
+                      <Truck className="h-8 w-8 text-primary-600" />
+                    </div>
+                    <span className="mt-4 font-medium text-neutral-800 group-hover:text-primary-700">Request Transport</span>
                   </Button>
                   
                   <Button 
-                    variant="outline" 
-                    className="flex flex-col items-center justify-center h-24 border-primary-200 hover:bg-primary-50 hover:border-primary-300"
+                    variant="ghost" 
+                    className="group relative flex flex-col items-center justify-center h-32 bg-white rounded-xl shadow-sm border border-neutral-200 transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-primary-300"
                     onClick={() => navigate('/track-shipment')}
                   >
-                    <MapPin className="h-6 w-6 text-primary-600 mb-2" />
-                    <span>Track Shipment</span>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-primary-500 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div className="p-3 rounded-full bg-secondary-50 group-hover:bg-secondary-100 transition-colors duration-300">
+                      <MapPin className="h-8 w-8 text-secondary-600" />
+                    </div>
+                    <span className="mt-4 font-medium text-neutral-800 group-hover:text-primary-700">Track Shipment</span>
                   </Button>
                   
                   <Button 
-                    variant="outline" 
-                    className="flex flex-col items-center justify-center h-24 border-primary-200 hover:bg-primary-50 hover:border-primary-300"
+                    variant="ghost" 
+                    className="group relative flex flex-col items-center justify-center h-32 bg-white rounded-xl shadow-sm border border-neutral-200 transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-primary-300"
                     onClick={() => navigate('/my-requests')}
                   >
-                    <Package className="h-6 w-6 text-primary-600 mb-2" />
-                    <span>My Requests</span>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-primary-500 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div className="p-3 rounded-full bg-success-light/20 group-hover:bg-success-light/30 transition-colors duration-300">
+                      <Package className="h-8 w-8 text-success-DEFAULT" />
+                    </div>
+                    <span className="mt-4 font-medium text-neutral-800 group-hover:text-primary-700">My Requests</span>
                   </Button>
                   
                   <Button 
-                    variant="outline" 
-                    className="flex flex-col items-center justify-center h-24 border-primary-200 hover:bg-primary-50 hover:border-primary-300"
+                    variant="ghost" 
+                    className="group relative flex flex-col items-center justify-center h-32 bg-white rounded-xl shadow-sm border border-neutral-200 transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-primary-300"
                     onClick={() => navigate('/payments')}
                   >
-                    <CreditCard className="h-6 w-6 text-primary-600 mb-2" />
-                    <span>Payments</span>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-primary-500 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div className="p-3 rounded-full bg-info-light/20 group-hover:bg-info-light/30 transition-colors duration-300">
+                      <CreditCard className="h-8 w-8 text-info-DEFAULT" />
+                    </div>
+                    <span className="mt-4 font-medium text-neutral-800 group-hover:text-primary-700">Payments</span>
                   </Button>
                 </>
               ) : (
                 <>
                   <Button 
-                    variant="outline" 
-                    className="flex flex-col items-center justify-center h-24 border-primary-200 hover:bg-primary-50 hover:border-primary-300"
+                    variant="ghost" 
+                    className="group relative flex flex-col items-center justify-center h-32 bg-white rounded-xl shadow-sm border border-neutral-200 transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-primary-300"
                     onClick={() => navigate('/available-requests')}
                   >
-                    <Package className="h-6 w-6 text-primary-600 mb-2" />
-                    <span>Available Requests</span>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-primary-500 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div className="p-3 rounded-full bg-primary-50 group-hover:bg-primary-100 transition-colors duration-300">
+                      <Package className="h-8 w-8 text-primary-600" />
+                    </div>
+                    <span className="mt-4 font-medium text-neutral-800 group-hover:text-primary-700">Available Requests</span>
                   </Button>
                   
                   <Button 
-                    variant="outline" 
-                    className="flex flex-col items-center justify-center h-24 border-primary-200 hover:bg-primary-50 hover:border-primary-300"
+                    variant="ghost" 
+                    className="group relative flex flex-col items-center justify-center h-32 bg-white rounded-xl shadow-sm border border-neutral-200 transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-primary-300"
                     onClick={() => navigate('/active-shipments')}
                   >
-                    <Truck className="h-6 w-6 text-primary-600 mb-2" />
-                    <span>Active Shipments</span>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-primary-500 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div className="p-3 rounded-full bg-secondary-50 group-hover:bg-secondary-100 transition-colors duration-300">
+                      <Truck className="h-8 w-8 text-secondary-600" />
+                    </div>
+                    <span className="mt-4 font-medium text-neutral-800 group-hover:text-primary-700">Active Shipments</span>
                   </Button>
                   
                   <Button 
-                    variant="outline" 
-                    className="flex flex-col items-center justify-center h-24 border-primary-200 hover:bg-primary-50 hover:border-primary-300"
+                    variant="ghost" 
+                    className="group relative flex flex-col items-center justify-center h-32 bg-white rounded-xl shadow-sm border border-neutral-200 transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-primary-300"
                     onClick={() => navigate('/my-vehicles')}
                   >
-                    <Truck className="h-6 w-6 text-primary-600 mb-2" />
-                    <span>My Vehicles</span>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-primary-500 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div className="p-3 rounded-full bg-success-light/20 group-hover:bg-success-light/30 transition-colors duration-300">
+                      <Truck className="h-8 w-8 text-success-DEFAULT" />
+                    </div>
+                    <span className="mt-4 font-medium text-neutral-800 group-hover:text-primary-700">My Vehicles</span>
                   </Button>
                   
                   <Button 
-                    variant="outline" 
-                    className="flex flex-col items-center justify-center h-24 border-primary-200 hover:bg-primary-50 hover:border-primary-300"
+                    variant="ghost" 
+                    className="group relative flex flex-col items-center justify-center h-32 bg-white rounded-xl shadow-sm border border-neutral-200 transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-primary-300"
                     onClick={() => navigate('/earnings')}
                   >
-                    <CreditCard className="h-6 w-6 text-primary-600 mb-2" />
-                    <span>Earnings</span>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-primary-500 rounded-t-xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div className="p-3 rounded-full bg-info-light/20 group-hover:bg-info-light/30 transition-colors duration-300">
+                      <CreditCard className="h-8 w-8 text-info-DEFAULT" />
+                    </div>
+                    <span className="mt-4 font-medium text-neutral-800 group-hover:text-primary-700">Earnings</span>
                   </Button>
                 </>
               )}
