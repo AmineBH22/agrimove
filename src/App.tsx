@@ -22,6 +22,7 @@ import MyRequests from './pages/my-requests';
 import DemoInfo from './pages/DemoInfo';
 import Services from './pages/Services';
 import RoutesPage from './pages/Routes';
+import Marketplace from './pages/Marketplace';
 
 // Protected route component
 interface ProtectedRouteProps {
@@ -88,6 +89,7 @@ function App() {
       <Route path="/demo-info" element={<DemoInfo />} />
       <Route path="/services" element={<Services />} />
       <Route path="/routes" element={<RoutesPage />} />
+      <Route path="/marketplace" element={<Marketplace />} />
       
       {/* Transporter-specific routes */}
      
